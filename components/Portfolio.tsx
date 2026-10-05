@@ -3369,43 +3369,54 @@ export default function Portfolio() {
 
           </div>
 
-          <div className="footer-links">
+<div className="footer-links">
+  <a
+    href="mailto:ahmaddzaaki.01@gmail.com"
+    aria-label="Email"
+  >
+    <BrandIcon
+      brand="gmail"
+      size={16}
+    />
+  </a>
 
-            <a
-              href="mailto:ahmaddzaaki.01@gmail.com"
-              aria-label="Email"
-            >
-              <BrandIcon
-                brand="gmail"
-                size={16}
-              />
-            </a>
+  <a
+    href="https://www.linkedin.com/in/ahmad-dzaki/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="LinkedIn"
+  >
+    <BrandIcon
+      brand="linkedin"
+      size={16}
+    />
+  </a>
 
-            <a
-              href="https://www.linkedin.com/in/ahmad-dzaki/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <BrandIcon
-                brand="linkedin"
-                size={16}
-              />
-            </a>
+  <a
+    href="https://www.instagram.com/ahmaddzaaki/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Instagram"
+  >
+    <BrandIcon
+      brand="instagram"
+      size={16}
+    />
+  </a>
 
-            <a
-              href="https://www.instagram.com/ahmaddzaaki/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              <BrandIcon
-                brand="instagram"
-                size={16}
-              />
-            </a>
-
-          </div>
+  <a
+    href="https://wa.me/6281927856578"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="WhatsApp"
+    title="WhatsApp"
+  >
+    <BrandIcon
+      brand="whatsapp"
+      size={16}
+    />
+  </a>
+</div>
 
           <small>
             © 2026 Ahmad Dzaki
