@@ -1690,6 +1690,519 @@ export default function Portfolio() {
         }
 
         /* ------------------------------------------------------
+           MOBILE + iOS RESPONSIVE LAYOUT
+        ------------------------------------------------------ */
+
+        /* Prevent Safari/iOS from unexpectedly resizing text and
+           prevent small horizontal overflow caused by animations. */
+        :root {
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+        }
+
+        body {
+          overflow-x: hidden;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        button,
+        a,
+        input,
+        textarea {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Tablet / small laptop */
+        @media (max-width: 900px) {
+          .container {
+            width: min(100% - 40px, 760px);
+            margin-inline: auto;
+          }
+
+          .nav {
+            min-height: 68px;
+          }
+
+          .menu-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            border: 0;
+            cursor: pointer;
+            touch-action: manipulation;
+          }
+
+          .nav-links {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex !important;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+            padding: 10px;
+            border-radius: 18px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-8px) scale(.98);
+            transform-origin: top center;
+            transition:
+              opacity .25s ease,
+              transform .25s ease,
+              visibility .25s ease;
+          }
+
+          .nav-links.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+          }
+
+          .nav-links a {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 12px;
+          }
+
+          .nav-links a:not(.nav-cv)::after {
+            display: none;
+          }
+
+          .nav-cv {
+            justify-content: center;
+            margin-top: 5px;
+          }
+
+          .hero {
+            min-height: auto;
+          }
+
+          .hero-layout {
+            grid-template-columns: minmax(0, 1fr) !important;
+            gap: 38px !important;
+            min-height: auto !important;
+            padding-top: 72px;
+            padding-bottom: 58px;
+          }
+
+          .hero-content {
+            width: 100%;
+            max-width: 760px;
+            margin-inline: auto;
+          }
+
+          .hero-photo-wrap {
+            width: min(76vw, 430px);
+            max-width: 430px;
+            margin: 0 auto;
+            justify-self: center;
+          }
+
+          .two-col,
+          .about-layout,
+          .contact-layout {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+
+          .section-head {
+            grid-template-columns: minmax(0, 1fr) !important;
+            gap: 18px;
+          }
+
+          .skill-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+
+          .project-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+
+          .leadership-layout {
+            grid-template-columns: minmax(0, 1fr) !important;
+            gap: 20px;
+          }
+
+          .leadership-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+
+          .leadership-grid > .leadership-interactive-card,
+          .leadership-layout .cert-panel {
+            height: auto;
+            min-height: 0;
+          }
+
+          .filters {
+            gap: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap !important;
+            justify-content: flex-start !important;
+            padding: 4px 2px 10px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+          }
+
+          .filters::-webkit-scrollbar {
+            display: none;
+          }
+
+          .filters button {
+            flex: 0 0 auto;
+            min-height: 44px;
+            white-space: nowrap;
+            touch-action: manipulation;
+          }
+
+          .contact-form {
+            width: 100%;
+            box-sizing: border-box;
+          }
+        }
+
+        /* Phones, including iPhone */
+        @media (max-width: 640px) {
+          .container {
+            width: calc(100% - 32px);
+            max-width: none;
+          }
+
+          .nav-wrap {
+            padding-top: env(safe-area-inset-top);
+          }
+
+          .nav {
+            min-height: 62px;
+          }
+
+          .brand {
+            min-width: 0;
+            max-width: calc(100% - 58px);
+            gap: 9px;
+          }
+
+          .brand > span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .nav-links {
+            left: 16px;
+            right: 16px;
+            max-height: calc(100svh - 90px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .hero-layout {
+            width: calc(100% - 32px);
+            gap: 30px !important;
+            padding-top: 54px;
+            padding-bottom: 44px;
+          }
+
+          .hero-content {
+            text-align: left;
+          }
+
+          .status {
+            font-size: .72rem;
+          }
+
+          .hero-content h1 {
+            font-size: clamp(2.55rem, 14vw, 4rem) !important;
+            line-height: .98 !important;
+            letter-spacing: -.045em !important;
+            overflow-wrap: anywhere;
+          }
+
+          .hero-content h1 span {
+            background-size: 180% 100%;
+          }
+
+          .hero-title {
+            margin-top: 12px;
+            font-size: .94rem;
+            line-height: 1.45;
+            max-width: 100%;
+          }
+
+          .hero-copy {
+            font-size: .96rem;
+            line-height: 1.65;
+          }
+
+          .hero-sub {
+            font-size: .9rem;
+            line-height: 1.7;
+          }
+
+          .hero-actions {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+            width: 100%;
+          }
+
+          .hero-actions .btn {
+            width: 100%;
+            min-height: 48px;
+            box-sizing: border-box;
+            justify-content: center;
+          }
+
+          .socials {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+            align-items: start;
+          }
+
+          .socials a {
+            min-height: 42px;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+          }
+
+          .socials .dot {
+            display: none;
+          }
+
+          .hero-marquee {
+            margin-top: 24px;
+          }
+
+          .hero-marquee-track span {
+            font-size: .62rem;
+            letter-spacing: .1em;
+            margin-right: 22px;
+          }
+
+          .hero-photo-wrap {
+            width: min(86vw, 360px);
+            max-width: 360px;
+            margin-inline: auto;
+          }
+
+          .section {
+            overflow: hidden;
+          }
+
+          .section-head {
+            display: block !important;
+          }
+
+          .section-head > p {
+            margin-top: 16px;
+            max-width: 100%;
+            font-size: .9rem;
+            line-height: 1.65;
+          }
+
+          .section h2 {
+            font-size: clamp(1.9rem, 9vw, 2.55rem);
+            line-height: 1.08;
+          }
+
+          .skill-grid,
+          .project-grid,
+          .leadership-grid {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+
+          .skill-card,
+          .project-card,
+          .leadership-grid > .leadership-interactive-card,
+          .leadership-layout .cert-panel {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+          }
+
+          .project-card:hover,
+          .leadership-grid > .leadership-interactive-card:hover,
+          .leadership-layout .cert-panel:hover,
+          .skill-card:hover {
+            transform: translateY(-4px);
+          }
+
+          .project-card h3,
+          .leadership-grid > .leadership-interactive-card h3 {
+            overflow-wrap: anywhere;
+          }
+
+          .tags {
+            flex-wrap: wrap;
+          }
+
+          .project-link {
+            min-height: 44px;
+          }
+
+          .leadership-layout {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+
+          .leadership-grid > .leadership-interactive-card p {
+            margin-top: 14px;
+          }
+
+          .contact-layout {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+
+          .contact-form {
+            padding: 18px !important;
+            border-radius: 18px;
+          }
+
+          .contact-form input,
+          .contact-form textarea,
+          .contact-form button {
+            font-size: 16px !important;
+          }
+
+          .contact-form input,
+          .contact-form textarea {
+            min-height: 48px;
+            box-sizing: border-box;
+          }
+
+          .contact-form textarea {
+            min-height: 130px;
+          }
+
+          .contact-form button {
+            min-height: 48px;
+            width: 100%;
+            justify-content: center;
+          }
+
+          .modal-backdrop {
+            padding:
+              max(14px, env(safe-area-inset-top))
+              14px
+              max(14px, env(safe-area-inset-bottom))
+              14px;
+            align-items: flex-start;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .modal {
+            width: 100% !important;
+            max-width: none !important;
+            max-height: calc(100dvh - 28px);
+            max-height: calc(100svh - 28px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            margin: 0;
+          }
+
+          .modal-close {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+          }
+
+          .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+
+          .footer-links {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 18px;
+          }
+        }
+
+        /* Very small phones: 320–375px */
+        @media (max-width: 375px) {
+          .container,
+          .hero-layout {
+            width: calc(100% - 24px);
+          }
+
+          .hero-layout {
+            padding-top: 44px;
+          }
+
+          .hero-content h1 {
+            font-size: clamp(2.25rem, 14vw, 3rem) !important;
+          }
+
+          .brand-mark {
+            width: 34px !important;
+            height: 34px !important;
+          }
+
+          .section h2 {
+            font-size: 1.85rem;
+          }
+
+          .hero-photo-wrap {
+            width: min(88vw, 320px);
+          }
+        }
+
+        /* iOS Safari safe-area and touch behaviour */
+        @supports (-webkit-touch-callout: none) {
+          html {
+            -webkit-text-size-adjust: 100%;
+          }
+
+          body {
+            min-height: 100%;
+          }
+
+          input,
+          textarea,
+          select,
+          button {
+            font-family: inherit;
+          }
+
+          .hero,
+          .section {
+            scroll-margin-top: 72px;
+          }
+
+          .hero-photo-wrap,
+          .project-card,
+          .skill-card,
+          .leadership-interactive-card,
+          .btn,
+          .menu-btn,
+          .filters button {
+            touch-action: manipulation;
+          }
+        }
+
+        /* ------------------------------------------------------
            ACCESSIBILITY / REDUCED MOTION
         ------------------------------------------------------ */
 
